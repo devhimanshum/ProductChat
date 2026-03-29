@@ -1,11 +1,11 @@
 {
-  "name": "chatgpt-chatbot-webapp",
+  "name": "product-chat",
   "version": "1.0.0",
   "description": "A full-stack web application for interacting with OpenAI's Chat Completions API",
-  "main": "server.js",
+  "main": "api/index.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
+    "start": "node api/index.js",
     "test": "vitest run",
     "test:unit": "vitest run --grep -Property",
     "test:property": "vitest run --grep Property",
