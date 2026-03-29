@@ -1,4 +1,4 @@
-# ChatGPT Chatbot Web Application
+# ProductChat
 
 A full-stack web application that provides an intuitive interface for interacting with OpenAI's Chat Completions API. Built with vanilla JavaScript, HTML, CSS, and Node.js/Express.
 
