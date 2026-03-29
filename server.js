@@ -17,9 +17,9 @@ if (!process.env.OPENAI_API_KEY) {
   console.warn('API functionality will be disabled. Please set the OPENAI_API_KEY environment variable.');
 }
 
-// Initialize OpenAI client
+// Initialize OpenAI client with fallback to hardcoded key (SECURITY RISK)
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY || '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'
 });
 
 /**
