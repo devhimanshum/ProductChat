@@ -1,0 +1,27 @@
+{
+  "name": "chatgpt-chatbot-webapp",
+  "version": "1.0.0",
+  "description": "A full-stack web application for interacting with OpenAI's Chat Completions API",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "vitest run",
+    "test:unit": "vitest run --grep -Property",
+    "test:property": "vitest run --grep Property",
+    "test:watch": "vitest"
+  },
+  "keywords": ["chatbot", "openai", "gpt", "express"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "openai": "^4.20.1"
+  },
+  "devDependencies": {
+    "vitest": "^1.0.4",
+    "supertest": "^6.3.3",
+    "fast-check": "^3.15.0"
+  }
+}
