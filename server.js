@@ -13,9 +13,8 @@ const __dirname = path.dirname(__filename);
 
 // Validate API key on startup
 if (!process.env.OPENAI_API_KEY) {
-  console.error('ERROR: OPENAI_API_KEY not found in environment variables');
-  console.error('Please create a .env file with your OpenAI API key');
-  process.exit(1);
+  console.warn('WARNING: OPENAI_API_KEY not found in environment variables');
+  console.warn('API functionality will be disabled. Please set the OPENAI_API_KEY environment variable.');
 }
 
 // Initialize OpenAI client
@@ -122,9 +121,14 @@ app.post('/chat', async (req, res) => {
 const PORT = process.env.PORT || 3000;
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-  console.log(`OpenAI API key configured: ${process.env.OPENAI_API_KEY.substring(0, 7)}...`);
-});
+// Start server only when not running as a Vercel Serverless Function
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+    if (process.env.OPENAI_API_KEY) {
+      console.log(`OpenAI API key configured: ${process.env.OPENAI_API_KEY.substring(0, 7)}...`);
+    }
+  });
+}
 
 export { app, callOpenAI };
